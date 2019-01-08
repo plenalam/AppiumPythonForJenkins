@@ -1,0 +1,28 @@
+{
+    "realOpts":{
+        "platformName": "iOS",
+        "platformVersion": "10.3",
+        "automationName": "xcuitest",
+        "deviceName": "GXXmobile",
+        "xcodeOrgId": "W7Q3L59QS3",
+        "xcodeSigningId": "iPhone Developer",
+        "udid": "dbaf9b9f351f0928cca949d3dea06b514e07b97d",
+        "bundleId": "com.gosuncn.appiumdemo.AppiumDemo",
+        "autoAcceptAlerts": true,
+        "showIOSLog": true,
+        "app": "/Users/yingjielee/Desktop/gitworkspace/webdriverioclient/AppiumDemo.ipa"
+    },
+    "simulatorOpt":{
+        "platformName": "iOS",
+        "platformVersion": "11.4",
+        "automationName": "xcuitest",
+        "deviceName": "GXXmobile",
+        "xcodeOrgId": "W7Q3L59QS3",
+        "xcodeSigningId": "iPhone Developer",
+        "udid": "B9EB98B9-3348-40B9-AD50-7CDE5E5227AF",
+        "bundleId": "com.gosuncn.appiumdemo.AppiumDemo",
+        "autoAcceptAlerts": true,
+        "showIOSLog": true,
+        "app": "/Users/yingjielee/Desktop/gitworkspace/webdriverioclient/AppiumDemo.app"
+    }
+}
