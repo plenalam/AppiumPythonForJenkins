@@ -15,3 +15,9 @@ class DriverManger:
                     DriverManger.instance = webdriver.Remote("http://192.168.36.42:4723/wd/hub", data['realOpts'])
             DriverManger.mutex.release()
         return DriverManger.instance
+    
+    @staticmethod
+    def quit():
+        if(DriverManger.instance != None):
+            DriverManger.instance.quit()
+            DriverManger.instance = None
