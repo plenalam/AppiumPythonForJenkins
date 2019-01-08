@@ -1,6 +1,7 @@
 import unittest
 import os
 import threading
+import xmlrunner
 
 class RunTest:
     def __init__(self):
@@ -25,11 +26,12 @@ class RunTest:
             testSuite.addTests(discover)
         return testSuite
     def run(self,testType):
+        runner = xmlrunner.XMLTestRunner(output='report')
         #根据启动标识启动测试用例
         if testType == "iOS":
-            unittest.TextTestRunner().run(self.iOSOrderTestSuite())
+            runner.run(self.iOSOrderTestSuite())
         else:
-            unittest.TextTestRunner().run(self.ALLTestSuite())
+            runner.run(self.ALLTestSuite())
 
 if __name__ == '__main__':
     threadTest = RunTest()
