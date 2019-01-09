@@ -38,7 +38,7 @@ class RunTest:
 
 if __name__ == '__main__':
     appiumservermanger = AppiumServerManger()
-    appiumservermanger.startServer(name="test",port=4333)
+    appiumservermanger.startServer(name="test",port=4723)
     time.sleep(15)
     counter = 10
     mylock = threading.RLock()

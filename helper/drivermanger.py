@@ -12,7 +12,7 @@ class DriverManger:
             if(DriverManger.instance==None):
                 with open('config/driver.json', 'r') as f:
                     data = json.load(f)
-                    DriverManger.instance = webdriver.Remote("http://192.168.36.42:4723/wd/hub", data['realOpts'])
+                    DriverManger.instance = webdriver.Remote("http://localhost:4723/wd/hub", data['realOpts'])
             DriverManger.mutex.release()
         return DriverManger.instance
     
