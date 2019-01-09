@@ -41,11 +41,15 @@ if __name__ == '__main__':
     appiumservermanger.startServer(name="test",port=4333)
     time.sleep(15)
     counter = 10
+    mylock = threading.RLock()
     while counter > 0:
+        mylock.acquire()
         counter = counter - 1
         if not DriverManger.getDriver() == None:
             break
-        time.sleep(3)
+        time.sleep(5)
+        print("wait 5s for retry")
+        mylock.release()
     if not DriverManger.getDriver()== None :
         threadTest = RunTest()
         threadTest.run("iOS")
