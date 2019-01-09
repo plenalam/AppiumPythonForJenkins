@@ -2,6 +2,9 @@ import unittest
 import os
 import threading
 import xmlrunner
+from helper.servermanger import AppiumServerManger
+from helper.drivermanger import DriverManger
+import time
 
 class RunTest:
     def __init__(self):
@@ -19,8 +22,8 @@ class RunTest:
             case_path = os.path.join(os.getcwd(),"module/"+moduleName)
             print(case_path)
             #加入Common的测试用例
-            # discover = unittest.defaultTestLoader.discover(case_path,pattern="test_common*.py", top_level_dir=None)
-            # testSuite.addTests(discover)
+            discover = unittest.defaultTestLoader.discover(case_path,pattern="test_common*.py", top_level_dir=None)
+            testSuite.addTests(discover)
             #加入iOS独有的测试用例
             discover = unittest.defaultTestLoader.discover("module/"+moduleName,pattern="test_ios_*.py",top_level_dir=os.path.join(os.getcwd()))
             testSuite.addTests(discover)
@@ -34,6 +37,19 @@ class RunTest:
             runner.run(self.ALLTestSuite())
 
 if __name__ == '__main__':
-    threadTest = RunTest()
-    threadTest.run("iOS")
+    appiumservermanger = AppiumServerManger()
+    appiumservermanger.startServer(name="test",port=4333)
+    time.sleep(15)
+    counter = 10
+    while counter > 0:
+        counter = counter - 1
+        if not DriverManger.getDriver() == None:
+            break
+        time.sleep(3)
+    if not DriverManger.getDriver()== None :
+        threadTest = RunTest()
+        threadTest.run("iOS")
+    time.sleep(15)
+    appiumservermanger.closeServer(name="test")
+  
     
