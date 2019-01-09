@@ -17,7 +17,7 @@ class AppiumServerManger:
         self.appiumServerList = {}
 
     def startServer(self, name, port):
-        cmd = "appium -p" + port
+        cmd = "appium -p %d" % (port)
         print("command:"+cmd)
         appium_server = AppiumServerManger()
         appium_server.name = name
