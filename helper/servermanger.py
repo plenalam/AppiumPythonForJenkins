@@ -25,7 +25,7 @@ class AppiumServerManger:
 
         output = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE)
         appium_server.pid = output.pid
-        print("pid:"+appium_server.pid)
+        print("pid:%d",appium_server.pid)
 
         self.appiumServerList[name] = appium_server
 
